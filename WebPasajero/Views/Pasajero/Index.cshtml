@@ -1,0 +1,47 @@
+﻿@model IEnumerable<WebPasajero.Models.Pasajero>
+
+<table>
+    <thead>
+        <tr>
+            <th>
+
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apellido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaNacimiento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ciudad)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Apellido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaNacimiento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ciudad )
+                </td>
+                <td>
+                    <a asp-action="ListarPorFechaNacimiento" asp-route-id="@item.FechaNacimiento">Buscar por fecha de nacimiento</a> |
+                    <a asp-action="ListarXCiudad" asp-route-id="@item.Ciudad">Delete</a> |
+                    <a asp-action="Create" asp-controller="Pasajero">Nuevo Pasajero</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
